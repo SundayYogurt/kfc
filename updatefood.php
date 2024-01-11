@@ -81,7 +81,7 @@ $stmt_2->execute();
             .input-menuid select {
                 width: 50%;
                 height: 45px;
-                
+
                 outline: none;
                 color: gray;
                 text-align: center;
@@ -128,6 +128,11 @@ $stmt_2->execute();
 
             }
 
+            .text-center {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: bottom;
+            }
         }
     </style>
     <div>
@@ -188,31 +193,32 @@ $stmt_2->execute();
 </body>
 
 </html>
+<div class="text-center">
+    <?php
+    try {
+        if (isset($_POST['foodID']) && isset($_POST['foodName'])) :
 
-<?php
-try {
-    if (isset($_POST['foodID']) && isset($_POST['foodName'])) :
+            require 'connect.php';
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "UPDATE tbl_food SET foodName = :foodName, foodDescription = :foodDescription, foodPrice = :foodPrice, MenuID = :MenuID WHERE foodID = :foodID";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':foodID', $_POST['foodID']);
+            $stmt->bindParam(':foodName', $_POST['foodName']);
+            $stmt->bindParam(':foodDescription', $_POST['foodDescription']);
+            $stmt->bindParam(':foodPrice', $_POST['foodPrice']);
+            $stmt->bindParam(':MenuID', $_POST['MenuID']);
 
-        require 'connect.php';
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "UPDATE tbl_food SET foodName = :foodName, foodDescription = :foodDescription, foodPrice = :foodPrice, MenuID = :MenuID WHERE foodID = :foodID";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':foodID', $_POST['foodID']);
-        $stmt->bindParam(':foodName', $_POST['foodName']);
-        $stmt->bindParam(':foodDescription', $_POST['foodDescription']);
-        $stmt->bindParam(':foodPrice', $_POST['foodPrice']);
-        $stmt->bindParam(':MenuID', $_POST['MenuID']);
+            if ($stmt->execute()) :
+                $message = 'Suscessfully add new customer';
+            else :
+                $messenge = 'Fail to add new customer';
+            endif;
+            echo $message;
 
-        if ($stmt->execute()) :
-            $message = 'Suscessfully add new customer';
-        else :
-            $messenge = 'Fail to add new customer';
+            $conn = null;
         endif;
-        echo $message;
-
-        $conn = null;
-    endif;
-} catch (PDOException $e) {
-    echo $e->getMessage();
-}
-?>
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    ?>
+</div>
