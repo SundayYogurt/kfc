@@ -1,0 +1,94 @@
+body {
+
+background-image: url("./imgselect.jpg");
+backdrop-filter: blur(20px);
+
+
+
+
+.table-style tr, td {
+            text-align: center;
+            border: 1px solid;
+            border-style: outset;
+            background-color: white;
+            
+            margin-top: center;
+                margin-bottom: center;
+
+            
+            
+        
+}
+table {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 10px color rgb(0, 0, 0);
+    background-color: transparent;
+    border-spacing: 5px;
+    border-style: solid;
+    box-shadow: 0 0 50px rgb(255, 255, 255);
+
+    
+}
+
+.order {
+    margin-left: auto;
+        margin-right: auto;
+        border: 10px color rgb(0, 0, 0);
+        background-color: transparent;
+        border-spacing: 5px;
+        border-style: inset;
+        text-align: center;
+        color: black;
+}
+
+ .first-name {
+
+    margin-left: auto;
+        margin-right: auto;
+        border: 10px color rgb(0, 0, 0);
+        background-color: transparent;
+        border-spacing: 5px;
+        border-style: inset;
+        text-align: center;
+ }
+
+ .dates {
+    margin-left: auto;
+        margin-right: auto;
+        border: 10px color rgb(0, 0, 0);
+        background-color: transparent;
+        border-spacing: 5px;
+        border-style: inset;
+        text-align: center;
+
+
+
+ }
+
+ .foodname {
+    margin-left: auto;
+    margin-right: auto;
+    border: 10px color rgb(0, 0, 0);
+    background-color: transparent;
+    border-spacing: 5px;
+    border-style: inset;
+    text-align: center;
+}
+.menu {margin-left: auto;
+    margin-right: auto;
+    border: 10px color rgb(0, 0, 0);
+    background-color: transparent;
+    border-spacing: 5px;
+    border-style: inset;
+    text-align: center;}
+
+    .qt {margin-left: auto;
+        margin-right: auto;
+        border: 10px color rgb(0, 0, 0);
+        background-color: transparent;
+        border-spacing: 5px;
+        border-style: inset;
+        text-align: center;}
+    }
